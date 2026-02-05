@@ -4,3 +4,4 @@ function greet(name: string) : string {
 
 let message = greet('Johnny')
 
+console.log(message)
