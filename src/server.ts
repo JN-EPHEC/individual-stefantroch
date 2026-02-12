@@ -1,8 +1,9 @@
 
-import express,{Request,Response} from 'express';
-import userRoutes from './routes/userRoutes';
-import sequelize from './config/database';
-import nodeRepl = require('node:repl');
+import express from 'express';
+import type { Request, Response } from 'express';
+import userRoutes from './routes/userRoutes.js';
+import sequelize from './config/database.js';
+
 const app = express();
 const port = 3000;
 const etudiants =[ 
@@ -31,13 +32,14 @@ const startServer = async () =>{
     }
 };
 
-startServer();
+
 
 //listenner
 app.listen(port,() =>{
     console.log(`Serveur lancé sur http://localhost:${port}`);
 });
 
+startServer()
 
 
 

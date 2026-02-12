@@ -1,4 +1,5 @@
-import express, {Response,Request} from 'express'
+import express from 'express'
+import type { Request, Response } from 'express';
 const router = express.Router();
 const users = [
 { id: 1, name: "Alice" },
