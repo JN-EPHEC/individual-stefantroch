@@ -1,4 +1,6 @@
+
 import express,{Request,Response} from 'express';
+import userRoutes from './routes/userRoutes';
 const app = express();
 const port = 3000;
 const etudiants =[ 
@@ -7,18 +9,20 @@ const etudiants =[
     { id: 3, nom: "Doe", prenom: "John" },
 ];
 
-
 app.get('/',(req : Request,res:Response) => {
     res.send('Bienvenue sur mon serveur API');
 });
 
+app.use('/api',userRoutes);
 app.get('/api/data', (req : Request, res: Response) =>
 {res.json(etudiants);
 
 });
 app.listen(port,() =>{
     console.log(`Serveur lancé sur http://localhost:${port}`);
-})
+});
+
+
 
 
 
