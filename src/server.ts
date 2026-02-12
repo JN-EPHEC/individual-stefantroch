@@ -1,6 +1,8 @@
 
 import express,{Request,Response} from 'express';
 import userRoutes from './routes/userRoutes';
+import sequelize from './config/database';
+import nodeRepl = require('node:repl');
 const app = express();
 const port = 3000;
 const etudiants =[ 
@@ -18,9 +20,26 @@ app.get('/api/data', (req : Request, res: Response) =>
 {res.json(etudiants);
 
 });
+//base de données.
+const startServer = async () =>{ 
+    try {
+        await sequelize.authenticate();
+        console.log('connection reussie a la base de donnée');
+    }
+    catch(error){
+        console.log('Error connection base de donée', error);
+    }
+};
+
+startServer();
+
+//listenner
 app.listen(port,() =>{
     console.log(`Serveur lancé sur http://localhost:${port}`);
 });
+
+
+
 
 
 
