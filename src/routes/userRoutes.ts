@@ -24,35 +24,40 @@ router.get('/users', async (req : Request, res : Response) => {
 
 });
 
-//method POST + catch error 500 & affiche status
+//method POST + catch error 500 & affiche status tcheck status 201
 router.post('/users', async (req : Request, res : Response)=>{
-    console.log("jusqu'ici ca marche", req.body)
+    //console.log("jusqu'ici ca marche", req.body);
     try{
         const user = await User.create(req.body);
+        //res.status(200).json({'utilisateur ajouté'});
         
-        res.status(201).json(user);
 
     }
     catch(error){
-        res.status(500).json({error : 'Erreur du serveur'})
+        res.status(500).json({error : 'Erreur du serveur'});
     }
 
 });
 
-//method delete
+/*Invoke-RestMethod -Uri http://localhost:3000/api/users `
+>> -Method POST `
+>> -Headers @{"Content-Type"="application/json"} `
+>> -Body '{"nom":"Troch","prenom":"Stefan"}'*/
+
+//method delete check status 200
 router.delete('/users/:id', async (req: Request, res : Response) =>{
     try {
         const delUser = await User.destroy({where : {id : req.params.id}});
-        res.status(200).json('Utilisateur supprimé');
+        //res.status(200).json({"Utilisateur supprimé"});
     }
     catch(error){
-        console.log(error)
-        res.status(500).json('Erreur serveur ')
+       // console.log(error)
+        res.status(500).json('Erreur serveur ');
     }
 
 
 });
-
+//Invoke-RestMethod -Uri http://localhost:3000/api/users/2 -Method DELETE
 
 
 
