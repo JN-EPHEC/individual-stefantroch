@@ -17,4 +17,7 @@ router.get('/etudiants', (req : Request, res : Response)=>{
     res.json(etudiants)
 });
 
+
+// a définir pour bonus, methode get et post pour bonus. ca sera stylé
+
 export default router

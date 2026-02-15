@@ -11,6 +11,7 @@ import User from '../models/User.js'
 // will handle any request that ends in /events
 // depends on where the router is "use()'d"
 
+// méthode GET async + catch error 500
 router.get('/users', async (req : Request, res : Response) => {
     try {
         const users = await User.findAll();
@@ -22,6 +23,8 @@ router.get('/users', async (req : Request, res : Response) => {
     }
 
 });
+
+//method POST + catch error 500 & affiche status
 router.post('/users', async (req : Request, res : Response)=>{
     console.log("jusqu'ici ca marche", req.body)
     try{
@@ -34,11 +37,24 @@ router.post('/users', async (req : Request, res : Response)=>{
         res.status(500).json({error : 'Erreur du serveur'})
     }
 
-}
+});
+
+//method delete
+router.delete('/users/:id', async (req: Request, res : Response) =>{
+    try {
+        const delUser = await User.destroy({where : {id : req.params.id}});
+        res.status(200).json('Utilisateur supprimé');
+    }
+    catch(error){
+        console.log(error)
+        res.status(500).json('Erreur serveur ')
+    }
+
+
+});
 
 
 
 
-);
 
 export default router;
