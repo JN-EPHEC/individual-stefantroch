@@ -2,26 +2,23 @@
 import express from 'express';
 import type { Request, Response } from 'express';
 import userRoutes from './routes/userRoutes.js';
+import etudiantsRoutes from './routes/etudiantsRoutes.js'
 import sequelize from './config/database.js';
 import './models/User.js'
 
 const app = express();
 const port = 3000;
-const etudiants =[ 
-    {id : 1, nom : "Dupond", prenom : 'Jean'},
-    { id: 2, nom: "Martin", prenom: "Sophie" },
-    { id: 3, nom: "Doe", prenom: "John" },
-];
 
-app.get('/',(req : Request,res:Response) => {
+
+/*app.get('/',(req : Request,res:Response) => {
     res.send('Bienvenue sur mon serveur API');
-});
-
+});*/
+app.use('/',express.static('public'))
+app.use(express.json())
 app.use('/api',userRoutes);
-app.get('/api/data', (req : Request, res: Response) =>
-{res.json(etudiants);
+app.use('/api',etudiantsRoutes );
 
-});
+
 //base de données.
 const startServer = async () =>{ 
     try {

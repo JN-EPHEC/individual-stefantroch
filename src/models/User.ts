@@ -23,7 +23,7 @@ User.init(
     },
 );
 
-
+export default User;
 
 // the defined model is the class itself
 console.log(User === sequelize.models.User); // true
