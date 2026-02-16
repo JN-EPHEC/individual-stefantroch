@@ -29,7 +29,7 @@ router.post('/users', async (req : Request, res : Response)=>{
     //console.log("jusqu'ici ca marche", req.body);
     try{
         const user = await User.create(req.body);
-        //res.status(200).json({'utilisateur ajouté'});
+        //res.status(201).json({'utilisateur ajouté'});
         
 
     }
