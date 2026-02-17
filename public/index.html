@@ -1,43 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>API Stefan Troch</title>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Stefan Troch</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-   
-    </head>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <style>
+      body {
+        background: #f5f7fb;
+      }
+      .page-title {
+        margin-top: 2rem;
+        text-align: center;
+      }
+      .page-title h1 {
+        font-weight: 700;
+        letter-spacing: 0.03em;
+      }
+      .page-title p {
+        color: #6c757d;
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
 
-    <body>
-        <div class="container">
-            <h1>Liste des étudiants</h1>
+  <body>
+    <div class="container page-title">
+      <h1>Base de donnée Users</h1>
+      <p>Ajoutez et gérez facilement  à la liste des utilisateurs</p>
+    </div>
+
+    <div class="container my-4">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">Ajouter un utilisateur</h5>
         </div>
-        <div class="container">
-            <form id="formUsers">
-                <label for="name">Nom :</label>
-                <input type="text" id= 'nom' placeholder = 'nom'></input>
-                <label for="'prenom">prénom :</label>
-                <input type="text" id = 'prenom' placeholder = "prenom"></input>
-                <button class="btn btn-primary" type="submit">Ajouter un étudiant</button>
-            </form>
+        <div class="card-body">
+          <form id="formUsers" class="row g-3">
+            <div class="col-md-6">
+              <label for="nom" class="form-label">Nom</label>
+              <input type="text" id="nom" class="form-control" placeholder="Entrez le nom">
+            </div>
+            <div class="col-md-6">
+              <label for="prenom" class="form-label">Prénom</label>
+              <input type="text" id="prenom" class="form-control" placeholder="Entrez le prénom">
+            </div>
+            <div class="col-12 text-end">
+              <button class="btn btn-primary" type="submit">Ajouter un utilisateur</button>
+            </div>
+          </form>
         </div>
-        <div>
-           <table class="table table-striped table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="listUsers">
-                <!-- le JS va remplir ici -->
-            </tbody>
-            </table>
-        </div>
-        
-        <script src = 'script.js'></script>
-    </body>
+      </div>
+    </div>
+
+    <div class="container">
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Supprimer</th>
+          </tr>
+        </thead>
+        <tbody id="listUsers">
+          <!-- le JS va remplir ici -->
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
