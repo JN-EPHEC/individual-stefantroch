@@ -29,7 +29,7 @@ router.post('/users', async (req : Request, res : Response)=>{
     //console.log("jusqu'ici ca marche", req.body);
     try{
         const user = await User.create(req.body);
-        //res.status(201).json({'utilisateur ajouté'});
+        res.status(201).json({user : 'utilisateur ajouté'});
         
 
     }
@@ -47,12 +47,16 @@ router.post('/users', async (req : Request, res : Response)=>{
 //method delete check status 200
 router.delete('/users/:id', async (req: Request, res : Response) =>{
     try {
-        const delUser = await User.destroy({where : {id : req.params.id}});
-        //res.status(200).json({"Utilisateur supprimé"});
+        const delUser = await User.destroy({
+            where : {id : req.params.id}
+        });
+        if (delUser === 0){
+            return res.status(404).json({message : "utilisateur n'existe pas"});
+        }
+        res.status(200).json({message : "Utilisateur supprimé"});
     }
     catch(error){
-       // console.log(error)
-        res.status(500).json('Erreur serveur ');
+        res.status(500).json( {error : 'Erreur serveur '});
     }
 
 
