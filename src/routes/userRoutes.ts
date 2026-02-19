@@ -4,6 +4,7 @@ import express from 'express'
 import type { Request, Response } from 'express';
 import User from '../models/User.js'
 import { INTEGER } from 'sequelize';
+import * as userController from "../controllers/userControllers.js"
 const router = express.Router();
 
 
@@ -16,16 +17,7 @@ const router = express.Router();
 
 
 // -------------------- GET --------------------
-router.get('/users', async (req: Request, res: Response) => {
-    try {
-        const users = await User.findAll(); // récupère tous les utilisateurs
-        res.status(200).json(users);        // réponse coté client
-    } 
-    catch (error) {
-        
-        res.status(500).json({ error: "Erreur serveur" });
-    }
-});
+router.get('/', userController.getAllUsers);
 
 // -------------------- POST --------------------
 router.post('/users', async (req: Request, res: Response) => {
