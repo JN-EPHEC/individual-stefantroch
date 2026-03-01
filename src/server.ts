@@ -13,9 +13,19 @@ const port = 3000;
 /*app.get('/',(req : Request,res:Response) => {
     res.send('Bienvenue sur mon serveur API');
 });*/
+/*app.use((req,res,next)=>{
+    console.log("REQUEST:", req.method, req.url);
+    next();
+});*/
 app.use('/',express.static('public'))
 app.use(express.json())
-app.use('/api',userRoutes);
+app.use('/api/users',userRoutes);
+app.use('/api',etudiantsRoutes );
+
+
+app.use('/',express.static('public'))
+app.use(express.json())
+app.use('/api/users',userRoutes);
 app.use('/api',etudiantsRoutes );
 
 
