@@ -5,6 +5,7 @@ import userRoutes from './routes/userRoutes.js';
 import etudiantsRoutes from './routes/etudiantsRoutes.js'
 import sequelize from './config/database.js';
 import './models/User.js'
+import { requestLogger } from './middlewares/logger.js';
 
 const app = express();
 const port = 3000;
@@ -17,14 +18,15 @@ const port = 3000;
     console.log("REQUEST:", req.method, req.url);
     next();
 });*/
-app.use('/',express.static('public'))
-app.use(express.json())
+app.use(requestLogger);
+app.use('/',express.static('public'));
+app.use(express.json());
 app.use('/api/users',userRoutes);
 app.use('/api',etudiantsRoutes );
 
 
-app.use('/',express.static('public'))
-app.use(express.json())
+app.use('/',express.static('public'));
+app.use(express.json());
 app.use('/api/users',userRoutes);
 app.use('/api',etudiantsRoutes );
 
