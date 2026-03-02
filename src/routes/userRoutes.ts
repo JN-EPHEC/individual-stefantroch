@@ -16,9 +16,31 @@ const router = express.Router();
 ];*/
 //console.log(userController)
 // -------------------- GET --------------------
+
+/**
+ * @swagger
+ * /api/users:
+ *   get:
+ *     summary: Récupère la liste des utilisateurs
+ *     tags: [Users]
+ *     responses:
+ *       200:
+ *         description: Succès
+ */
 router.get('/', userController.getAllUsers);
 
 // -------------------- POST --------------------
+/**
+ * @swagger
+ * /api/users:
+ *   post:
+ *     summary: Rajoute des utilisateurs
+ *     tags: [Users]
+ *     responses:
+ *       200:
+ *         description: Succès
+ */
+
 router.post('/', userController.postNewUser)
 
 // -------------------- PUT --------------------

@@ -6,6 +6,13 @@ import etudiantsRoutes from './routes/etudiantsRoutes.js'
 import sequelize from './config/database.js';
 import './models/User.js'
 import { requestLogger } from './middlewares/logger.js';
+import { error } from 'node:console';
+import { errorHandler } from './middlewares/errorHandler.js';
+import swaggerUi from "swagger-ui-express";
+import { swaggerSpec } from "./config/swagger";
+
+
+
 
 const app = express();
 const port = 3000;
@@ -18,6 +25,8 @@ const port = 3000;
     console.log("REQUEST:", req.method, req.url);
     next();
 });*/
+// En premier de la liste des routes server.ts
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(requestLogger);
 app.use('/',express.static('public'));
 app.use(express.json());
@@ -48,7 +57,7 @@ const startServer = async () =>{
 };
  
 
-
+app.use(errorHandler);
 //listenner
 
 
