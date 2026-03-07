@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsx src/server.ts",
+    "start": "tsx server/src/server.ts",
     "seeds": "tsx seeds/seedUsers.ts"
   },
   "keywords": [],
@@ -21,8 +21,10 @@
     "tsx": "^4.21.0"
   },
   "dependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "bootstrap": "^5.3.8",
+    "cors": "^2.8.6",
     "express": "^5.2.1",
     "pg": "^8.18.0",
     "pg-hstore": "^2.3.4",
