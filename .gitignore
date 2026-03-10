@@ -1,2 +1,4 @@
-node_modules
-public/script2.js  
+node_modules/
+public/script2.js/  
+server/coverage/
+server/node_modules
