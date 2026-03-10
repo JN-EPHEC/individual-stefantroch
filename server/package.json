@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
- "scripts": {
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsx watch src/server.ts"
-  },
+    "start": "tsx watch src/server.ts",
+    "test": "jest",
+"test:watch": "jest --watch",
+"test:coverage": "jest --coverage"
 
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -23,7 +26,12 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
     "@types/node": "^25.3.5",
+    "@types/supertest": "^7.2.0",
+    "jest": "^30.2.0",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.6",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
