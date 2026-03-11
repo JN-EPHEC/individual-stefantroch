@@ -3,10 +3,10 @@
 export const userValidator = (age : number ,role : string ,email : string ) : boolean =>{
     const hasDot = /[.]/.test(email);
     const hasArobase = /[@]/.test(email);
-    const ageValide = /[0-9]/.test(age)
+ 
     
 
-    if (ageValide){
+  
         if (age > 120) {
              throw new Error('Âge invalide')
             }
@@ -32,5 +32,11 @@ export const userValidator = (age : number ,role : string ,email : string ) : bo
         }
 
     }
-    else {return false}
-}
+
+
+
+/*
+
+
+   const ageValide = /[0-9]/.test(age)    else {return false}
+}  if (ageValide){*/ 

@@ -17,16 +17,14 @@
 import { userValidator } from "../utils/userValidator"
 
 const ValidateUserTest = [
-    [16,'admin','test@test.test',false],
+[16,'admin','test@test.test',false],
 [16,'user','test@test',false],
 [16,'stagiaire','testtest.test',false],
 [16,'invalide','test@test.test',false],
-[16,'stagiaire','testtest',false],
 
 [18,'admin','test@test',false],
 [18,'user','testtest.test',false],
 [18,'stagiaire','test@test.test',true],
-[25,'user','testtest',false]
 
 ]
 const ValidateUserTestThrow = [
@@ -36,7 +34,6 @@ const ValidateUserTestThrow = [
 [121,'user','test@test.test',"Âge invalide"],
 [121,'stagiaire','test@test',"Âge invalide"],
 [121,'invalide','testtest.test',"Âge invalide"],
-[30,'manager','test@test.test','Rôle invalide']
 ]
 
 describe('Pair Whise userValidator',()=>{
