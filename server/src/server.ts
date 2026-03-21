@@ -9,6 +9,7 @@ import { errorHandler } from './middlewares/errorHandler.js';
 import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./config/swagger.js";
 import cors from 'cors';
+import User from './models/User.js';
 
 const app = express();
 const port = 3000;
@@ -39,7 +40,7 @@ const startServer = async () =>{
     try {
         await sequelize.authenticate();
         console.log('connection reussie a la base de donnée');
-        await sequelize.sync();
+        await sequelize.sync({force:true});
         console.log('All models were synchronized successfully.');
         app.listen(port,() =>{
         console.log(`Serveur lancé sur http://localhost:${port}`);
