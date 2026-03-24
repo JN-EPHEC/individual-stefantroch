@@ -16,7 +16,10 @@
 
 import { userValidator } from "../utils/userValidator"
 
-const ValidateUserTest = [
+type UserTestCase = [number, string, string, boolean];
+type UserThrowCase = [number, string, string, string];
+
+const ValidateUserTest: UserTestCase[] = [
 [16,'admin','test@test.test',false],
 [16,'user','test@test',false],
 [16,'stagiaire','testtest.test',false],
@@ -27,7 +30,7 @@ const ValidateUserTest = [
 [18,'stagiaire','test@test.test',true],
 
 ]
-const ValidateUserTestThrow = [
+const ValidateUserTestThrow: UserThrowCase[] = [
 
 [18,'invalide','test@test','Rôle invalide'],
 [121,'admin','testtest.test',"Âge invalide"],
@@ -51,7 +54,7 @@ describe ('Pair whise userValidator throw errors',()=>{
      test.each(ValidateUserTestThrow)(
         'Pour chaque situation : age %d, role %s, email %s',
         (age, role, email, expected) => {
-            expect(() => userValidator(age, role, email)).toThrow(expected)
+            expect(() => userValidator(age, role, email)).toThrow(String(expected))
         }
     )
 })

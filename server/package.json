@@ -7,7 +7,8 @@
     "test": "jest",
     "start": "tsx watch src/server.ts",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
   "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "pg": "^8.20.0",
     "sequelize": "^6.37.7",
@@ -23,6 +25,7 @@
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
+    "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.6",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.3.5",

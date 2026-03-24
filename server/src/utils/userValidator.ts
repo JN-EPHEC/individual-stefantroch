@@ -32,11 +32,3 @@ export const userValidator = (age : number ,role : string ,email : string ) : bo
         }
 
     }
-
-
-
-/*
-
-
-   const ageValide = /[0-9]/.test(age)    else {return false}
-}  if (ageValide){*/ 

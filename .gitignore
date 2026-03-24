@@ -2,3 +2,6 @@ node_modules/
 public/script2.js/  
 server/coverage/
 server/node_modules
+.env
+.env.developement 
+.env.production

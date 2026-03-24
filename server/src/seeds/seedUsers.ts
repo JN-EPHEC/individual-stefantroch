@@ -1,5 +1,5 @@
-import User from '../src/models/User.js';
-import sequelize from '../src/config/database.js';
+import User from '../models/User.js';
+import sequelize from '../config/database.js';
 
 async function seed() {
     try {
