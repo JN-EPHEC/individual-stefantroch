@@ -35,6 +35,7 @@ function UserList({ users, onDelete }: { users: User[], onDelete: (id: number) =
         ))}
       </tbody>
     </table>
+    
   );
 }
 
