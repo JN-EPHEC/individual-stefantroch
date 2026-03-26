@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import UserForm from "./components/UserForm";
 import UserList from "./components/UserList";
+import './App.css'
 //GET + POST + DELETE
 import { getUsers, addUser, deleteUser } from "./utils/api";
 //definition du type User

@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-function UserForm({ onAddUser }) {
+type props = {
+  onAddUser :(user:{nom:string;prenom:string}) => void
+
+}
+
+
+function UserForm({ onAddUser }:props) {
 
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
