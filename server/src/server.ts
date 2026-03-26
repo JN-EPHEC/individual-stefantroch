@@ -55,31 +55,3 @@ const startServer = async () =>{
 
 startServer()
 
-
-
-
-
-
-
-
-
-
-/*function greet(name: string) : string {
-    return `Salut c'est  ${name}!`;
-}
-
-let message = greet('Johnny')
-
-console.log(message)*/
-
-
-
-/* Pas noté dans les slides :
-
-app.delete /personne /:id)
-let id = req.param.id
-gestion DB => dynamiser une route
-
-middlewhere de validation
-
-*/
