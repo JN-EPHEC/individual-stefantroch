@@ -5,3 +5,4 @@ server/node_modules
 .env
 .env.developement 
 .env.production
+standby.txt 
