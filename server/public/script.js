@@ -1,6 +1,6 @@
 
 
-console.log(fetch('http://localhost:3000/api/users'))
+console.log(fetch('/api/users'))
 
 const liste = document.getElementById('listUsers');
 const form = document.getElementById('formUsers');
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async function(){
 
 function init() {
 
-    fetch('http://localhost:3000/api/users')
+    fetch('/api/users')
         .then(function(response) {
             return response.json();
         })
@@ -49,9 +49,8 @@ function init() {
 
                     const id = this.getAttribute('data-id');
 
-                    fetch('http://localhost:3000/api/users/' + id, {
-                        method: 'DELETE'
-                    })
+                    fetch('/api/users/' + id, { method: 'DELETE'})
+                       
                     .then(function() {
                         init();
                     });
@@ -71,7 +70,7 @@ form.addEventListener('submit', function(event){
     const prenom = document.getElementById('prenom').value;
 
     //POST
-    fetch('http://localhost:3000/api/users',{
+    fetch('/api/users',{
     method: "POST",
     headers: {
         "Content-Type" : "application/json"

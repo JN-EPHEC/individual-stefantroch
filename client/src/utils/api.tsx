@@ -1,5 +1,5 @@
 const API_URL = import.meta.env.VITE_API_URL;
-
+console.log(API_URL)
 // GET
 export function getUsers() {
   return fetch(`${API_URL}/users`)
